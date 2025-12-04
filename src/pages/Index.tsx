@@ -1,5 +1,5 @@
 import { BCIControlPanel } from "@/components/BCIControlPanel";
-import { Brain, Mail, Users } from "lucide-react";
+import { Mail, Users } from "lucide-react";
 
 const Index = () => {
   return (
@@ -8,16 +8,12 @@ const Index = () => {
       <header className="border-b border-border bg-card/80 backdrop-blur-sm sticky top-0 z-10">
         <div className="container mx-auto px-6 py-4">
           <div className="flex items-center gap-3">
-            <div className="p-2 gradient-primary rounded-xl shadow-soft">
-              <Brain className="h-6 w-6 text-primary-foreground" />
-            </div>
+            <img src="/sensoria.svg" alt="Sensoria logo" className="h-6 w-6" />
+
+            {/* logo */}
             <div>
-              <h1 className="font-display text-xl font-bold text-foreground tracking-tight">
-                NeuroMotor BCI
-              </h1>
-              <p className="text-xs text-muted-foreground">
-                Neurorehabilitation System
-              </p>
+              <h1 className="page_title__po7na">Sensoria</h1>
+
             </div>
           </div>
         </div>
@@ -30,12 +26,11 @@ const Index = () => {
           <section className="space-y-8">
             <div className="text-center space-y-4 max-w-2xl mx-auto">
               <h2 className="font-display text-2xl font-semibold text-foreground">
-                Session Control
+                BCI Spaceship Game
               </h2>
               <p className="text-muted-foreground leading-relaxed">
-                A Brain-Computer Interface system using motor imagery and neurofeedback that 
-                identifies cortical activation through EEG and delivers real-time feedback 
-                to enhance neuroplasticity and improve post-stroke motor rehabilitation.
+                A game developed for Brain-Computer Interface system using motor imagery and neurofeedback that 
+                delivers real-time feedback to enhance neuroplasticity and improve post-stroke motor rehabilitation.
               </p>
             </div>
 
@@ -46,71 +41,34 @@ const Index = () => {
           {/* Features Section */}
           <section className="space-y-8">
             <h2 className="font-display text-xl font-semibold text-foreground text-center">
-              Key Features
+              Our Approach
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
               <FeatureCard
                 title="Motor Imagery"
                 description="Detection of cortical activation through EEG signal processing"
+                imageSrc="/motor_imagery.jpg"
+                href="https://www.frontiersin.org/journals/aging-neuroscience/articles/10.3389/fnagi.2022.863379/full"
               />
               <FeatureCard
                 title="Neurofeedback"
                 description="Real-time visual feedback for enhanced training sessions"
+                imageSrc="/neurofeedback.jpg"
+                href="https://www.frontiersin.org/journals/human-neuroscience/articles/10.3389/fnhum.2019.00329/full"
               />
               <FeatureCard
-                title="Neuroplasticity"
-                description="Enhancement of post-stroke motor rehabilitation outcomes"
+                title="Better training protocols"
+                description="Adaptive feedback and gamification improve user engagement and motor learning"
+                imageSrc="/training.jpg"
+                href="https://www.sciencedirect.com/science/article/pii/S2451958824001416"
               />
-            </div>
-          </section>
-
-          {/* About Us Section */}
-          <section className="space-y-8">
-            <div className="text-center">
-              <h2 className="font-display text-xl font-semibold text-foreground">
-                About Us
-              </h2>
-            </div>
-            
-            <div className="bg-card rounded-2xl shadow-soft border border-border p-8 space-y-6">
-              <div className="flex items-center gap-3 justify-center">
-                <Users className="h-5 w-5 text-primary" />
-                <span className="font-display font-semibold text-foreground">
-                  Our Team
-                </span>
-              </div>
-              
-              <p className="text-muted-foreground text-center max-w-xl mx-auto">
-                We are a multidisciplinary team of researchers and engineers dedicated to 
-                developing innovative solutions for neurorehabilitation using cutting-edge 
-                brain-computer interface technology.
-              </p>
-
-              {/* Team Members Placeholder */}
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4">
-                <TeamMemberCard
-                  name="Team Member 1"
-                  role="Role / Position"
-                  email="email1@example.com"
-                />
-                <TeamMemberCard
-                  name="Team Member 2"
-                  role="Role / Position"
-                  email="email2@example.com"
-                />
-                <TeamMemberCard
-                  name="Team Member 3"
-                  role="Role / Position"
-                  email="email3@example.com"
-                />
-              </div>
             </div>
           </section>
 
           {/* Footer */}
           <footer className="border-t border-border pt-8 text-center">
             <p className="text-sm text-muted-foreground">
-              © 2024 NeuroMotor BCI. All rights reserved.
+              © 2025 Sensoria.
             </p>
           </footer>
         </div>
@@ -119,24 +77,45 @@ const Index = () => {
   );
 };
 
-function FeatureCard({ title, description }: { title: string; description: string }) {
+type FeatureCardProps = {
+  title: string;
+  description: string;
+  imageSrc?: string;
+};
+
+function FeatureCard({ title, description, imageSrc, href }: FeatureCardProps & { href?: string }) {
   return (
-    <div className="bg-card rounded-2xl shadow-soft border border-border overflow-hidden">
-      {/* Image Placeholder */}
-      <div className="aspect-video bg-muted flex items-center justify-center border-b border-border">
-        <span className="text-xs text-muted-foreground">Image Placeholder</span>
+    <a
+      href={href}
+      target="_blank"
+      rel="noreferrer"
+      className="block hover:-translate-y-1 hover:shadow-lg transition-transform transition-shadow duration-200"
+    >
+      <div className="bg-card rounded-2xl shadow-soft border border-border overflow-hidden h-full">
+        {/* Image */}
+        <div className="aspect-video bg-muted flex items-center justify-center border-b border-border overflow-hidden">
+          {imageSrc ? (
+            <img
+              src={imageSrc}
+              alt={title}
+              className="w-full h-full object-cover"
+            />
+          ) : (
+            <span className="text-xs text-muted-foreground">Image Placeholder</span>
+          )}
+        </div>
+        
+        {/* Content */}
+        <div className="p-5 text-center space-y-2">
+          <h3 className="font-display text-base font-semibold text-foreground">
+            {title}
+          </h3>
+          <p className="text-sm text-muted-foreground leading-relaxed">
+            {description}
+          </p>
+        </div>
       </div>
-      
-      {/* Content */}
-      <div className="p-5 text-center space-y-2">
-        <h3 className="font-display text-base font-semibold text-foreground">
-          {title}
-        </h3>
-        <p className="text-sm text-muted-foreground leading-relaxed">
-          {description}
-        </p>
-      </div>
-    </div>
+    </a>
   );
 }
 
