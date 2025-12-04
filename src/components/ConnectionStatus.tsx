@@ -9,17 +9,17 @@ interface ConnectionStatusProps {
 
 const statusConfig = {
   disconnected: {
-    label: "Desconectado",
+    label: "Disconnected",
     color: "bg-muted-foreground",
     pulse: false,
   },
   connecting: {
-    label: "Conectando...",
+    label: "Connecting...",
     color: "bg-warning",
     pulse: true,
   },
   connected: {
-    label: "Conectado",
+    label: "Connected",
     color: "bg-success",
     pulse: false,
   },

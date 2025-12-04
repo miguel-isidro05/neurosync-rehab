@@ -14,21 +14,21 @@ export function BCIControlPanel() {
   const handleVerifyConnection = async () => {
     setConnectionStatus("connecting");
     
-    // Simulación de verificación TCP
+    // TCP verification simulation
     setTimeout(() => {
-      const success = Math.random() > 0.3; // 70% éxito para demo
+      const success = Math.random() > 0.3; // 70% success for demo
       
       if (success) {
         setConnectionStatus("connected");
         toast({
-          title: "Conexión establecida",
-          description: "La conexión TCP se ha verificado correctamente.",
+          title: "Connection established",
+          description: "TCP connection has been verified successfully.",
         });
       } else {
         setConnectionStatus("error");
         toast({
-          title: "Error de conexión",
-          description: "No se pudo establecer la conexión TCP. Verifique el servidor.",
+          title: "Connection error",
+          description: "Could not establish TCP connection. Please verify the server.",
           variant: "destructive",
         });
       }
@@ -38,8 +38,8 @@ export function BCIControlPanel() {
   const handleToggleSession = () => {
     if (!isRunning && connectionStatus !== "connected") {
       toast({
-        title: "Conexión requerida",
-        description: "Debe verificar la conexión TCP antes de iniciar.",
+        title: "Connection required",
+        description: "You must verify the TCP connection before starting.",
         variant: "destructive",
       });
       return;
@@ -48,30 +48,30 @@ export function BCIControlPanel() {
     setIsRunning(!isRunning);
     
     toast({
-      title: isRunning ? "Sesión detenida" : "Sesión iniciada",
+      title: isRunning ? "Session stopped" : "Session started",
       description: isRunning 
-        ? "La sesión de neurofeedback ha sido detenida." 
-        : "Iniciando adquisición de señales EEG...",
+        ? "The neurofeedback session has been stopped." 
+        : "Starting EEG signal acquisition...",
     });
   };
 
   return (
     <div className="w-full max-w-md mx-auto">
       <div className="bg-card rounded-2xl shadow-soft border border-border p-8 space-y-8">
-        {/* Header con estado */}
+        {/* Header with status */}
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
             <div className="p-2 rounded-xl bg-accent">
               <Activity className="h-5 w-5 text-primary" />
             </div>
             <span className="font-display font-semibold text-foreground">
-              Panel de Control
+              Control Panel
             </span>
           </div>
           <ConnectionStatus status={connectionStatus} />
         </div>
 
-        {/* Botones de acción */}
+        {/* Action buttons */}
         <div className="space-y-4">
           <Button
             variant="outline"
@@ -81,9 +81,9 @@ export function BCIControlPanel() {
             disabled={connectionStatus === "connecting"}
           >
             <Wifi className={connectionStatus === "connected" ? "text-success" : ""} />
-            <span className="flex-1 text-left">Verificar Conexión TCP</span>
+            <span className="flex-1 text-left">Verify TCP Connection</span>
             {connectionStatus === "connecting" && (
-              <span className="text-xs text-muted-foreground">Verificando...</span>
+              <span className="text-xs text-muted-foreground">Verifying...</span>
             )}
           </Button>
 
@@ -96,24 +96,24 @@ export function BCIControlPanel() {
             {isRunning ? (
               <>
                 <Square className="h-5 w-5" />
-                <span>Detener Sesión</span>
+                <span>Stop Session</span>
               </>
             ) : (
               <>
                 <Play className="h-5 w-5" />
-                <span>Iniciar Sesión</span>
+                <span>Start Session</span>
               </>
             )}
           </Button>
         </div>
 
-        {/* Info adicional */}
+        {/* Additional info */}
         {isRunning && (
           <div className="bg-accent/50 rounded-xl p-4 border border-primary/20">
             <div className="flex items-center gap-2 text-sm">
               <div className="h-2 w-2 rounded-full bg-success animate-pulse-slow" />
               <span className="text-foreground font-medium">
-                Sesión activa - Adquiriendo señales EEG
+                Active session - Acquiring EEG signals
               </span>
             </div>
           </div>
