@@ -67,9 +67,12 @@ const Index = () => {
           </section>
 
           {/* Footer */}
-          <footer className="border-t border-border pt-8 text-center">
+          <footer className="border-t border-border pt-8 text-center space-y-2">
             <p className="text-sm text-muted-foreground">
-              © 2025 Sensoria.
+              © 2025 Sensoria - BCI Neurorehabilitation System
+            </p>
+            <p className="text-xs text-muted-foreground">
+              Developed for Monash Challenge 2025 by Miguel Isidro Báez
             </p>
           </footer>
         </div>

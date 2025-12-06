@@ -1,7 +1,13 @@
 """
-Test TCP client for OpenVIBE signal simulation
-Press 'i' to send "izquierda" signal, 'd' to send "derecha" signal
+Sensoria - Test TCP Client
+Simulates OpenVIBE motor imagery signals for testing
+
+Press 'i' to send "izquierda" (left) signal
+Press 'd' to send "derecha" (right) signal
 Press 'q' to quit
+
+Developed for Monash Challenge 2025
+Author: Miguel Isidro Báez <miguel.isidro@upch.pe>
 """
 
 import socket

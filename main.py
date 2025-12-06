@@ -1,6 +1,12 @@
 """
+Sensoria - BCI Neurorehabilitation System
 FastAPI server with TCP receiver for OpenVIBE signals
+
 Receives TCP signals from OpenVIBE and exposes them via REST API
+with real-time WebSocket streaming for motor imagery feedback.
+
+Developed for Monash Challenge 2025
+Author: Miguel Isidro Báez <miguel.isidro@upch.pe>
 """
 
 import asyncio
