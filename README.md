@@ -386,7 +386,6 @@ Contributions are welcome! This project can be extended in multiple directions:
 ## 📧 Contact
 
 **Miguel Isidro Báez**  
-Biomedical Engineering  
 Email: [miguel.isidro@upch.pe](mailto:miguel.isidro@upch.pe)
 
 **Project Repository**: [https://github.com/miguel-isidro05/neurosync-rehab](https://github.com/miguel-isidro05/neurosync-rehab)
